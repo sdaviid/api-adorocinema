@@ -88,6 +88,7 @@ def get_by_season(
                 t = {
                     'poster': episode.poster,
                     'name': episode.name,
+                    'code': episode.code,
                     'summary': episode.summary
                 }
                 response.append(t)

@@ -72,9 +72,16 @@ class adoroCinemaSeasonEpisode(object):
         summary
     ):
         self.poster = poster
-        self.name = name
+        self.original_name = name
         self.summary = summary
-
+        self.code = False
+        self.name = False
+        self.handler()
+    def handler(self):
+        if self.original_name.startswith('S') and 'E' in self.original_name and ' - ' in self.original_name:
+            temp = self.original_name.split('-')
+            self.code = temp[0].strip()
+            self.name = temp[1].strip()
 
 
 class adoroCinemaSeason(object):
@@ -234,7 +241,7 @@ class adoroCinema(object):
                 xml = lxml.html.fromstring(response.text)
                 data = adoroCinemaSerie(
                     title_type='series',
-                    title_name='kkkk',
+                    title_name='',
                     title_id=id,
                     title_date=None,
                     title_genre=None
