@@ -127,7 +127,8 @@ def find_by_name(
                 'type': item.title_type,
                 'date': item.title_date,
                 'id': item.title_id,
-                'summary': item.summary
+                'summary': item.summary,
+                'genre': item.title_genre
             }
             if(item.title_type == 'series'):
                 temp_seasons = []
